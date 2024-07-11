@@ -1,0 +1,5 @@
+/* Custom height calculation */
+.h-calc-100vh-minus-24 {
+    height: calc(100vh - 6rem); /* 6rem is equivalent to the height of `h-24` in Tailwind CSS */
+}
+
