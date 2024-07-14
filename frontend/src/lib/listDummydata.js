@@ -45,7 +45,7 @@ export const listData = [
     },
     {
       id: 5,
-      title: "Apartment 5",
+      title: "Apartment 5 ",
       img: "https://images.pexels.com/photos/276625/pexels-photo-276625.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
       bedroom: 3,
       bathroom: 2,

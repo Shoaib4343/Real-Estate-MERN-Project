@@ -2,6 +2,7 @@ import React from 'react'
 import { listData } from '../../lib/listDummydata'
 import Filter from '../../Components/filter/Filter'
 import Card from '../../Components/card/Card'
+import Map from '../../Components/map/Map'
 
 const ListPage = () => {
     const data = listData;
@@ -24,9 +25,9 @@ const ListPage = () => {
           </div>
         </div>
 
-        {/* rigth side List */}
-        <div className='bg-gray-300 w-2/5 '>
-          Right side
+        {/* rigth side List map section */}
+        <div className='bg-gray-300 w-2/5 h-[100%] box-border '>
+         <Map item={data} />
         </div>
     </div>
   )
