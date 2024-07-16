@@ -7,6 +7,7 @@ import Contact from "./Pages/Contact";
 import Agents from "./Pages/Agents";
 import ListPage from "./Pages/listPage/ListPage";
 import "./App.css"
+import SinglePage from "./Pages/singlePage/SinglePage";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/agents" element={<Agents />} />
           <Route path="/list" element={<ListPage />} />
+          <Route path="/:id" element={<SinglePage />} />
         </Routes>
       </BrowserRouter>
     </div>
