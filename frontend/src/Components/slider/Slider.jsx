@@ -23,7 +23,7 @@ const Slider = ({ images }) => {
   return (
     <div className=" ">
       {imageIndex !== null && (
-        <div className="w-full h-screen bg-black fixed top-0 left-0 ">
+        <div className="w-full h-screen bg-black fixed top-0 left-0 z-[9999] ">
         <div  onClick={() => changeDirections("left")}
           className="  absolute  top-1/2 left-8 cursor-pointer">
           <IoMdArrowBack className="  text-white text-4xl " />
@@ -45,8 +45,12 @@ const Slider = ({ images }) => {
       </div>
       )}
 
+
+
+
+
       {/* images grid */}
-      <div className="flex justify-between w-full h-[350px] gap-5 rounded-lg">
+      <div className="flex flex-col md:flex-row justify-between w-full h-[350px] gap-5 rounded-lg">
         <div className="bigImage ">
           <img 
             onClick={()=>setImageIndex(0)}
@@ -55,9 +59,9 @@ const Slider = ({ images }) => {
             alt=""
           />
         </div>
-        <div className="smallImage flex flex-col justify-between ">
+        <div className="smallImage flex md:flex-col justify-between gap-4 ">
           {images.slice(1).map((img,index) => (
-            <img className="h-28 object-cover rounded-md" src={img} key={index} alt="" onClick={()=>setImageIndex(index + 1)} />
+            <img className="h-28 object-cover rounded-lg w-full" src={img} key={index} alt="" onClick={()=>setImageIndex(index + 1)} />
           ))}
         </div>
       </div>
