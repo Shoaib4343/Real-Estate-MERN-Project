@@ -8,6 +8,7 @@ import Agents from "./Pages/Agents";
 import ListPage from "./Pages/listPage/ListPage";
 import "./App.css"
 import SinglePage from "./Pages/singlePage/SinglePage";
+import ProfilePage from "./Pages/profilePage/ProfilePage";
 
 const App = () => {
   return (
@@ -24,6 +25,7 @@ const App = () => {
           <Route path="/agents" element={<Agents />} />
           <Route path="/list" element={<ListPage />} />
           <Route path="/:id" element={<SinglePage />} />
+          <Route path="/profile" element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
     </div>
