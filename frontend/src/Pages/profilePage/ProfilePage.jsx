@@ -4,8 +4,8 @@ import Chat from '../../Components/chat/Chat'
 
 const ProfilePage = () => {
   return (
-    <div className='flex min-h-screen container mx-auto px-4'>
-        <div className="details w-3/5 ">
+    <div className='flex flex-col lg:flex-row min-h-screen container mx-auto px-4'>
+        <div className="details w-full lg:w-3/5 ">
             <div className="wrapper flex flex-col pr-16 gap-5">
                 <div className="title flex justify-between items-center">
                     <h1 className='font-light text-3xl'>User Information</h1>
@@ -40,7 +40,7 @@ const ProfilePage = () => {
         </div>
 
         {/* rigth side 2/5 chat section */}
-        <div className="chatContainer w-2/5 bg-gray-300 mt-0 h-screen" >
+        <div className="chatContainer w-full lg:w-2/5 bg-gray-300 mt-0 h-screen" >
             <div className="wrapper px-5  h-screen ">
                 <Chat />
             </div>

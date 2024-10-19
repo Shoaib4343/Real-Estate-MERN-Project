@@ -20,6 +20,7 @@ const Home = () => {
           atque est nobis exercitationem obcaecati officia consequatur sint
           rerum et tenetur sunt.
         </p>
+        {/* Serach Component */}
         <Search />
         <div className="hidden md:flex justify-between  pb-10 w-4/5">
           <div>
