@@ -5,7 +5,7 @@ import Card from '../../Components/card/Card'
 import Map from '../../Components/map/Map'
 
 const ListPage = () => {
-    const data = listData;
+
     
   return (
     <div className='container mx-auto flex justify-between md:h-[calc(100vh-6rem)]  px-4  overflow-y-hidden'>
@@ -17,7 +17,7 @@ const ListPage = () => {
 
             {/* map funtion and pass props to the cards components */}
             {
-              data.map((val)=>(
+              listData.map((val)=>(
                 <Card key={val.id} val={val} />
               
               ))
@@ -27,7 +27,7 @@ const ListPage = () => {
 
         {/* rigth side List map section */}
         <div className='bg-gray-300 w-2/5 h-[100%] box-border '>
-         <Map item={data} />
+         <Map item={listData} />
         </div>
     </div>
   )

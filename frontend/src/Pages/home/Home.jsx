@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Home.css";
 import Search from "../../Components/search/Search";
+import { AuthContext } from "../../../context/AuthContext";
 
 const Home = () => {
+  const {currentUser} = useContext(AuthContext)
+  // console.log('cureent user data with context api',currentUser)
   return (
     <div className="container mx-auto flex justify-between items-center md:h-[calc(100vh-6rem)] px-4 mb-10 ">
       {/* Left Side Content */}

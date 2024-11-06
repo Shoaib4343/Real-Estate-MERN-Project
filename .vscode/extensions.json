@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "moalamri.inline-fold"
+        "moalamri.inline-fold",
+        "prisma.prisma",
+        "wallabyjs.console-ninja"
     ]
 }
