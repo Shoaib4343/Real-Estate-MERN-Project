@@ -7,13 +7,13 @@ const MarkerWithPopup = ({ val }) => {
     <Marker position={[val.latitude, val.longitude]}>
       <Popup>
         <img 
-          src={val.img} 
+          src={val.images[0]} 
           alt={val.title} 
           className="w-full min-w-64  h-32 object-cover mb-2 rounded-md shadow-xl" 
           
         />
         <div className="space-y-2">
-          <Link to={`/${val.id}`}>
+          <Link to={`/${val._id}`}>
             <h1 className="text-lg font-bold leading-tight">{val.title}</h1>
           </Link>
           <p className="leading-tight">Bedrooms: <b>{val.bedroom}</b></p>

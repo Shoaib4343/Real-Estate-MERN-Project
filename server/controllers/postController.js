@@ -1,39 +1,114 @@
 const postModel = require("../models/postModel")
 const postDetailModel = require("../models/postDetailModel")
+const jwt = require('jsonwebtoken'); // For JWT verification
+const SavedPost = require('../models/savedPostSchema'); // Assuming your SavedPost schema is here
 
-// get All Post
-const getPosts =async (req,res)=>{
-    const query = req.query;
-    console.log(query)
-    
-    try{
-        const posts = await postModel.find()
-        res.status(200).json(posts)
-    }catch(err){
-        console.log(err);
-        res.status(500).json({message:"Failed to get Posts"})
-    }
-}
-
-// get Single POst
 const getPost = async (req, res) => {
-    const id = req.params.id;
+  const id = req.params.id;
 
-    try {
-        const post = await postModel.findOne({ _id: id })
-            .populate('user', 'username avatar') // Populate user with username and avatar
-            .populate('postDetail'); // Populate postDetail
+  try {
+    // Fetch the post from the database, populating user and postDetail
+    const post = await postModel.findOne({ _id: id })
+      .populate('user', 'username avatar') // Populate user with username and avatar
+      .populate('postDetail'); // Populate postDetail
 
-        if (!post) {
-            return res.status(404).json({ message: "Post not found" });
+    if (!post) {
+      return res.status(404).json({ message: "Post not found" });
+    }
+
+    // JWT token handling
+    const token = req.cookies?.token; // Assuming the token is in cookies
+
+    if (token) {
+      // Verify the token and check if the user has saved this post
+      jwt.verify(token, process.env.JWT_SECRET_KEY, async (err, payload) => {
+        if (err) {
+          return res.status(401).json({ message: 'Unauthorized' });
         }
 
-        res.status(200).json(post);
-    } catch (err) {
-        console.log(err);
-        res.status(500).json({ message: "Failed to get post" });
+        // Find if the current user has saved this post
+        const saved = await SavedPost.findOne({
+          user: payload.id,
+          post: id,
+        });
+
+        // Add the isSaved field to the response
+        res.status(200).json({ ...post.toObject(), isSaved: saved ? true : false });
+      });
+    } else {
+      // If no token is provided, return post without isSaved info
+      res.status(200).json({ ...post.toObject(), isSaved: false });
     }
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Failed to get post" });
+  }
 };
+
+
+const getPosts = async (req, res) => {
+    const query = req.query; // Get query parameters from the request
+    
+    // Create an empty object to build the querzy
+    const filter = {};
+    
+    // Dynamically build the filter object based on query parameters
+    if (query.city) {
+      filter.city = query.city;
+    }
+    if (query.type) {
+      filter.type = query.type;
+    }
+    if (query.property) {
+      filter.property = query.property;
+    }
+    if (query.bedroom) {
+      filter.bedroom = parseInt(query.bedroom);
+    }
+    if (query.minPrice || query.maxPrice) {
+      filter.price = {};
+      if (query.minPrice) {
+        filter.price.$gte = parseInt(query.minPrice); // Greater than or equal to minPrice
+      }
+      if (query.maxPrice) {
+        filter.price.$lte = parseInt(query.maxPrice); // Less than or equal to maxPrice
+      }
+    }
+  
+    try {
+      // Query posts from MongoDB using Mongoose with the filter
+      const posts = await postModel.find(filter);
+  
+      // Return the posts as a response
+      res.status(200).json(posts);
+    } catch (err) {
+      // Handle any errors that occur during the query
+      console.log(err);
+      res.status(500).json({ message: 'Failed to get Posts' });
+    }
+  };
+  
+
+// // get Single POst
+// const getPost = async (req, res) => {
+//     const id = req.params.id;
+
+//     try {
+//         const post = await postModel.findOne({ _id: id })
+//             .populate('user', 'username avatar') // Populate user with username and avatar
+//             .populate('postDetail'); // Populate postDetail
+
+//         if (!post) {
+//             return res.status(404).json({ message: "Post not found" });
+//         }
+
+//         res.status(200).json(post);
+//     } catch (err) {
+//         console.log(err);
+//         res.status(500).json({ message: "Failed to get post" });
+//     }
+// };
 
 
 

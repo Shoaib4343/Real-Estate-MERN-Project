@@ -9,8 +9,8 @@ const Card = ({ val }) => {
            <div className=" w-2/5 h-48">
 
              {/* image Container */}
-               <Link to={`/${val.id}`}>
-                    <img className='w-full h-[100%] object-cover object-center rounded-xl' src={val.img} alt={val.title} />
+               <Link to={`/${val._id}`}>
+                    <img className='w-full h-[100%] object-cover object-center rounded-xl' src={val.img || val.images[0]} alt={val.title} />
                </Link>
            </div>
 
@@ -20,7 +20,7 @@ const Card = ({ val }) => {
 
                {/* Tittle */}
                 <h3 className='text-xl font-semibold text-gray-700'>
-                   <Link to={`/${val.id}`}> {val.title} </Link>
+                   <Link to={`/${val._id}`}> {val.title} </Link>
                </h3>
                 
                 {/* Address */}

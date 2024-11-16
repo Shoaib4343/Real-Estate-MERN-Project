@@ -15,6 +15,7 @@ const postSchema = new mongoose.Schema({
   createdAt: { type: Date, default: Date.now },
   user: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }, // Reference to User schema
   postDetail: { type: mongoose.Schema.Types.ObjectId, ref: 'PostDetail' }, // Optional reference to PostDetail schema
+  savedPosts: [{ type: mongoose.Schema.Types.ObjectId, ref: 'SavedPost' }] // Reference to SavedPost schema
 });
 
 module.exports = mongoose.model('Post', postSchema);

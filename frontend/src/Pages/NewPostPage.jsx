@@ -101,7 +101,7 @@ function NewPostPage() {
                     </div>
                     <div className="flex flex-col gap-1">
                         <label htmlFor="city">City</label>
-                        <input value={formData.city} onChange={handleInputData} id="city" name="city" type="text" className="p-4 border border-gray-300 rounded" required />
+                        <input value={formData.city} onChange={handleInputData} id="city" name="city" type="text" className="p-4 border border-gray-300 rounded" required  />
                     </div>
                     <div className="flex flex-col gap-1">
                         <label htmlFor="bedroom">Bedroom Number</label>
@@ -113,11 +113,11 @@ function NewPostPage() {
                     </div>
                     <div className="flex flex-col gap-1">
                         <label htmlFor="latitude">Latitude</label>
-                        <input value={formData.latitude} onChange={handleInputData} id="latitude" name="latitude" type="text" className="p-4 border border-gray-300 rounded" required />
+                        <input value={formData.latitude} onChange={handleInputData} id="latitude" name="latitude" type="number" className="p-4 border border-gray-300 rounded" required />
                     </div>
                     <div className="flex flex-col gap-1">
                         <label htmlFor="longitude">Longitude</label>
-                        <input value={formData.longitude} onChange={handleInputData} id="longitude" name="longitude" type="text" className="p-4 border border-gray-300 rounded" required />
+                        <input value={formData.longitude} onChange={handleInputData} id="longitude" name="longitude" type="number" className="p-4 border border-gray-300 rounded" required />
                     </div>
                     <div className="flex flex-col gap-1">
                         <label htmlFor="type">Type</label>
