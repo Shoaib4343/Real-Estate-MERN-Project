@@ -17,7 +17,18 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "SavedPost"
     }
-  ]
+  ],
+  chats: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Chat",
+    },
+  ],
+  chatIDs: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+    },
+  ],
 });
 
 module.exports = mongoose.model("User",userSchema)

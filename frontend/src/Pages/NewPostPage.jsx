@@ -77,7 +77,7 @@ function NewPostPage() {
     };
 
     return (
-        <div className="container mx-auto flex justify-between items-start md:h-[calc(100vh-6rem)] px-4 mb-10 ">
+        <div className="container mx-auto flex justify-between items-start  px-4 mb-10 ">
             {/* Left Side Content */}
             <div className="flex flex-col gap-5 md:w-3/5 md:flex-[3] md:justify-between ">
                 <h1 className="text-2xl font-bold mb-4">Add New Post</h1>
@@ -178,7 +178,7 @@ function NewPostPage() {
             </div>
 
             {/* Right Side Image */}
-            <div className="hidden lg:flex flex-[2] bg-gray-300 h-full relative overflow-visible md:w-2/5 justify-center items-center p-4">
+            <div className="hidden lg:flex flex-[2] bg-gray-300  relative overflow-visible md:w-2/5 justify-center items-center p-4 h-[100vh]">
                 <div className="flex flex-wrap gap-4 justify-center">
                     {images.map((image, index) => (
                         <img

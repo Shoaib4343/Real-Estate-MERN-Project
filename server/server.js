@@ -5,6 +5,8 @@ const app = express();
 const authRouter = require('./routes/authRoutes')
 const testRouter = require('./routes/testRouter')
 const postRouter = require('./routes/postRouter')
+const chatRouter = require('./routes/chatRoutes')
+const messageRouter = require('./routes/messageRoutes')
 
 const cors = require('cors')
 const cookieParser = require('cookie-parser')
@@ -21,6 +23,8 @@ app.use("/auth",authRouter)
 app.use("/test",testRouter)
 app.use("/user",userRouter)
 app.use("/post",postRouter)
+app.use("/chats",chatRouter)
+app.use("/messages",messageRouter)
 
 
 

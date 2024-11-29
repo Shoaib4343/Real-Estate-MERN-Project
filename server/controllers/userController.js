@@ -1,7 +1,9 @@
 
 const userModel = require("../models/userModel");
 const SavedPost = require("../models/savedPostSchema");
+const Post = require("../models/postModel");
 const bcrypt = require("bcrypt");
+const chatModel = require("../models/chatModel");
 
 // show all users
 const getUsers = async (req, res) => {
@@ -73,6 +75,7 @@ const updateUser = async (req, res) => {
   }
 };
 
+// del post
 const deleteUser = async (req, res) => {
   try {
     console.log("working");
@@ -82,7 +85,7 @@ const deleteUser = async (req, res) => {
   }
 };
 
-
+// savePost
 const savePost = async (req, res) => {
   const postId = req.body.postId;
   const tokenUserId = req.userId; // This comes from your authentication middleware
@@ -124,4 +127,69 @@ const savePost = async (req, res) => {
 
 
 
-module.exports = { getUsers, getUser, updateUser, deleteUser,savePost };
+const profilePosts = async (req, res) => {
+  const tokenUserId = req.userId; // This comes from your authentication middleware
+
+  try {
+    // Fetch posts created by the user (find posts where the userId matches)
+    const userPosts = await Post.find({ user: tokenUserId });
+
+    // Fetch saved posts by the user
+    const saved = await SavedPost.find({ user: tokenUserId }).populate("post"); // Populate the 'post' field with post details
+
+    // Extract the saved posts from the populated data
+    const savedPosts = saved.map((item) => item.post);
+
+    // Send the response with both user posts and saved posts
+    res.status(200).json({ userPosts, savedPosts });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Failed to get profile posts!" });
+  }
+};
+
+
+
+
+
+
+// const getNotificationNumber = async (req, res) => {
+//   const tokenUserId = req.userId; // Get user ID from the token
+
+//   try {
+//     // Count the number of chats where the user is part of it and has not seen it
+//     const number = await chatModel.countDocuments({
+//       userIDs: { $in: [tokenUserId] }, // Check if the user is involved in the chat
+//       seenBy: { $nin: [tokenUserId] }, // Check if the user hasn't seen it
+//     });
+
+//     res.status(200).json(number); // Return the count of unread notifications
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({ message: "Failed to get notification count!" });
+//   }
+// };
+
+
+const getNotificationNumber = async (req, res) => {
+  const tokenUserId = req.userId; // Get user ID from the token
+
+  try {
+    // Count unread messages
+    const number = await chatModel.countDocuments({
+      userIDs: { $in: [tokenUserId] },
+      seenBy: { $nin: [tokenUserId] },
+    });
+
+    res.status(200).json(number); // Return the unread notification count
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: "Failed to get notification count!" });
+  }
+};
+
+
+
+
+
+module.exports = { getUsers, getUser, updateUser, deleteUser,savePost,profilePosts ,getNotificationNumber};

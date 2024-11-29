@@ -1,12 +1,11 @@
 import React from 'react'
-import {listData} from "../../lib/listDummydata"
 import Card from '../card/Card'
 
-const List = () => {
+const List = ({post,deleteHandler}) => {
   return (
     <div>
-        {listData.map((val)=>(
-            <Card key={val.id} val={val} />
+        {post.map((val)=>(
+            <Card key={val.id} val={val} deleteHandler={deleteHandler} />
         ))}
         
     </div>
