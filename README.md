@@ -121,3 +121,66 @@ Real-Estate-MERN-Project/
 │   └── app.js
 │
 └── README.md
+
+---
+
+✅ Prerequisites
+
+Node.js (v16+)
+
+MongoDB (Local or Atlas)
+
+npm or yarn
+
+Git
+
+🚀 Installation
+Clone Repository
+git clone https://github.com/Shoaib4343/Real-Estate-MERN-Project.git
+cd Real-Estate-MERN-Project
+
+
+Install Dependencies
+Frontend
+cd frontend
+npm install
+
+
+Backend
+cd ../server
+npm install
+
+
+Socket Server
+cd ../socket
+npm install
+
+
+🔐 Environment Variables
+Backend (server/.env)
+DATABASE_URL=mongodb://127.0.0.1:27017/fypRealEstate
+JWT_SECRET_KEY=your_secret_key_here
+CLIENT_URL=http://localhost:5173
+PORT=8800
+
+
+Frontend (frontend/.env)
+VITE_CLOUDINARY_CLOUD_NAME=your_cloudinary_name
+VITE_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
+
+
+Running the Application
+Backend Server
+cd server
+npm start
+Runs on: http://localhost:8800
+
+Socket Server
+cd socket
+npm start
+Runs on: http://localhost:4000
+
+Frontend
+cd frontend
+npm run dev
+Runs on: http://localhost:5173
