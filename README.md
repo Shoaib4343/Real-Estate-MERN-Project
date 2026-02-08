@@ -8,7 +8,7 @@ This application enables users to list properties, explore them on interactive m
 ## 📸 Screenshots
 
 <!-- Add screenshots here -->
-![Home]([Screenshot 2026-02-08 130559.png](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/Screenshot%202026-02-08%20130559.png))
+![Home](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/Screenshot%202026-02-08%20130559.png?raw=true)
 <!-- ![Listing](screenshots/listing.png) -->
 <!-- ![Chat](screenshots/chat.png) -->
 <!-- ![Map](screenshots/map.png) -->
