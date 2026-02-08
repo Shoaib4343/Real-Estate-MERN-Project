@@ -1,18 +1,17 @@
 # 🏡 Real Estate Platform – Full Stack MERN Application
 
 A **full-featured real estate platform** built with the **MERN stack (MongoDB, Express, React, Node.js)**.  
-This application enables users to list properties, explore them on interactive maps, and communicate in real-time via chat.
+Users can list properties, explore them on interactive maps, and communicate in real-time via chat.
 
 ---
 
 ## 📸 Screenshots
 
-<!-- Add screenshots here -->
 ![Home](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/Screenshot%202026-02-08%20130559.png?raw=true)
-![Listing](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/List.png?raw=true) 
-![ListingDetail](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/List%20Detial%20page.png?raw=true) 
-[Chat]([screenshots/chat.png](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/chat.png?raw=true)) 
-![User](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/userProfile.png?raw=true)
+![Listing](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/List.png?raw=true)
+![Listing Detail](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/List%20Detial%20page.png?raw=true)
+![Chat](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/chat.png?raw=true)
+![User Profile](https://github.com/Shoaib4343/Real-Estate-MERN-Project/blob/main/userProfile.png?raw=true)
 
 ---
 
@@ -29,10 +28,6 @@ This application enables users to list properties, explore them on interactive m
 - [Socket Events](#-socket-events)
 - [Database Schema](#-database-schema)
 - [Security Best Practices](#-security-best-practices)
-- [Deployment](#-deployment)
-- [Future Enhancements](#-future-enhancements)
-- [Contributing](#-contributing)
-- [License](#-license)
 
 ---
 
@@ -40,54 +35,39 @@ This application enables users to list properties, explore them on interactive m
 
 ### 🔐 Authentication & Authorization
 - User registration & login
-- Password hashing with **bcrypt**
-- JWT-based authentication
+- Password hashing with bcrypt
+- JWT authentication
 - HTTP-only cookies
-- Protected routes & middleware
+- Protected routes
 
 ### 🏘️ Property Management
-- Create, read, update & delete property listings
-- Upload multiple images using **Cloudinary**
-- Rich text editor for descriptions
-- Advanced filtering:
-  - City
-  - Buy / Rent
-  - Property type (Apartment, House, Condo, Land)
-  - Price range
-  - Bedrooms
-- Save / bookmark favorite properties
+- Create, read, update & delete listings
+- Multiple image uploads (Cloudinary)
+- Advanced filtering
+- Save / bookmark properties
 
 ### 💬 Real-Time Chat
-- WebSocket-based instant messaging
-- One-on-one chat between buyers & owners
-- Online/offline status tracking
+- Socket.IO based messaging
+- One-to-one chat
+- Online/offline status
 - Unread message indicators
-- Persistent chat history
 
 ### 🗺️ Interactive Maps
-- **Leaflet.js** integration
-- Property location markers
-- Popup details on markers
-- Responsive map view
+- Leaflet.js integration
+- Property markers
+- Popup property details
 
 ### 👤 User Profile
-- View & edit profile
-- Avatar upload via Cloudinary
-- View owned properties
-- View saved properties
-- Manage active chats
-
-### 📱 Responsive Design
-- Mobile-first approach
-- Tailwind CSS styling
-- Fully responsive layouts
+- Edit profile & avatar
+- View owned & saved listings
+- Manage chats
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- React 18
+- React
 - Vite
 - React Router DOM
 - Axios
@@ -96,8 +76,6 @@ This application enables users to list properties, explore them on interactive m
 - Zustand
 - React Leaflet
 - React Quill
-- DOMPurify
-- Timeago.js
 
 ### Backend
 - Node.js
@@ -112,12 +90,14 @@ This application enables users to list properties, explore them on interactive m
 - Dotenv
 
 ### External Services
-- Cloudinary (Image uploads)
-- OpenStreetMap (Maps)
+- Cloudinary
+- OpenStreetMap
 
 ---
 
 ## 📁 Project Structure
+
+```bash
 Real-Estate-MERN-Project/
 │
 ├── frontend/
@@ -141,77 +121,3 @@ Real-Estate-MERN-Project/
 │   └── app.js
 │
 └── README.md
-
-
-
-
----
-
-## ✅ Prerequisites
-
-- Node.js (v16+)
-- MongoDB (local or Atlas)
-- npm or yarn
-- Git
-
-**Optional**
-- MongoDB Compass
-- Postman
-
----
-
-## 🚀 Installation
-
-### 1️⃣ Clone the Repository
-```bash
-git clone https://github.com/Shoaib4343/Real-Estate-MERN-Project.git
-cd Real-Estate-MERN-Project
-
-
-2️⃣ Install dependencies
-Frontend
-cd frontend
-npm install
-
-
-Backend
-cd server
-npm install
-
-
-Socket Server
-cd socket
-npm install
-
-
-🔐 Environment Variables
-Backend (server/.env)
-DATABASE_URL=mongodb://127.0.0.1:27017/fypRealEstate
-JWT_SECRET_KEY=your_secret_key_here
-CLIENT_URL=http://localhost:5173
-PORT=8800
-
-
-Frontend (frontend/.env)
-VITE_CLOUDINARY_CLOUD_NAME=your_cloudinary_name
-VITE_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
-
-
-Running the Application
-
-Backend Server
-cd server
-npm start
-Runs on: http://localhost:8800
-
-
-Socket Server
-cd socket
-npm start
-Runs on: http://localhost:4000
-
-
-Frontend
-cd frontend
-npm run dev
-Runs on: http://localhost:5173
