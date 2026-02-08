@@ -121,24 +121,24 @@ This application enables users to list properties, explore them on interactive m
 Real-Estate-MERN-Project/
 │
 ├── frontend/
-│ ├── src/
-│ │ ├── Components/
-│ │ ├── Pages/
-│ │ ├── context/
-│ │ ├── lib/
-│ │ ├── App.jsx
-│ │ └── main.jsx
-│ └── vite.config.js
+│   ├── src/
+│   │   ├── Components/
+│   │   ├── Pages/
+│   │   ├── context/
+│   │   ├── lib/
+│   │   ├── App.jsx
+│   │   └── main.jsx
+│   └── vite.config.js
 │
 ├── server/
-│ ├── controllers/
-│ ├── models/
-│ ├── routes/
-│ ├── middleware/
-│ └── server.js
+│   ├── controllers/
+│   ├── models/
+│   ├── routes/
+│   ├── middleware/
+│   └── server.js
 │
 ├── socket/
-│ └── app.js
+│   └── app.js
 │
 └── README.md
 
@@ -167,25 +167,21 @@ git clone https://github.com/Shoaib4343/Real-Estate-MERN-Project.git
 cd Real-Estate-MERN-Project
 
 
-
-2️⃣ Install Dependencies
-
+2️⃣ Install dependencies
 Frontend
-
 cd frontend
 npm install
 
 
 Backend
-
-cd ../server
+cd server
 npm install
 
 
 Socket Server
-
-cd ../socket
+cd socket
 npm install
+
 
 🔐 Environment Variables
 Backend (server/.env)
@@ -194,108 +190,27 @@ JWT_SECRET_KEY=your_secret_key_here
 CLIENT_URL=http://localhost:5173
 PORT=8800
 
+
 Frontend (frontend/.env)
 VITE_CLOUDINARY_CLOUD_NAME=your_cloudinary_name
 VITE_CLOUDINARY_UPLOAD_PRESET=your_upload_preset
 
-🏃 Running the Application
 
-You need to run four services:
-
-MongoDB
-mongod
+Running the Application
 
 Backend Server
 cd server
 npm start
+Runs on: http://localhost:8800
 
-
-Runs on http://localhost:8800
 
 Socket Server
 cd socket
 npm start
+Runs on: http://localhost:4000
 
-
-Runs on http://localhost:4000
 
 Frontend
 cd frontend
 npm run dev
-
-
-Runs on http://localhost:5173
-
-📡 API Documentation
-Authentication
-
-POST /auth/register
-
-POST /auth/login
-
-POST /auth/logout
-
-Posts
-
-GET /post
-
-GET /post/:id
-
-POST /post
-
-DELETE /post/:id
-
-Chats
-
-GET /chats
-
-POST /chats
-
-GET /chats/:id
-
-PUT /chats/read/:id
-
-Messages
-
-POST /messages/:chatId
-
-🔌 Socket Events
-Client → Server
-socket.emit("newUser", userId);
-socket.emit("sendMessage", { receiverId, data });
-
-Server → Client
-socket.on("getMessage", (data) => {
-  // handle incoming message
-});
-
-💾 Database Schema
-
-User
-
-Post
-
-PostDetail
-
-Chat
-
-Message
-
-SavedPost
-
-All schemas are implemented using Mongoose with proper references.
-
-🔒 Security Best Practices
-
-HTTP-only cookies
-
-Password hashing with bcrypt
-
-JWT authentication
-
-Input validation & sanitization
-
-CORS configuration
-
-Environment variable protection
-
+Runs on: http://localhost:5173
